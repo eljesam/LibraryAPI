@@ -11,4 +11,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\LibraryAPI.Application\LibraryAPI.Application.csproj" />
+      <ProjectReference Include="..\LibraryAPI.Infrastructure\LibraryAPI.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
