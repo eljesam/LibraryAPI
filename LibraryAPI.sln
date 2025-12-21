@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAPI", "LibraryAPI\LibraryAPI.csproj", "{60C92122-7FE7-4D31-A7C0-EC0341045297}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAPI.API", "LibraryAPI.API\LibraryAPI.API.csproj", "{60C92122-7FE7-4D31-A7C0-EC0341045297}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAPI.Domain", "LibraryAPI.Domain\LibraryAPI.Domain.csproj", "{E039ADDF-F742-40DE-B3F0-7B9D52809DA5}"
 EndProject
