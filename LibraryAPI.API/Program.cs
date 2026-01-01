@@ -16,6 +16,7 @@ builder.Services.AddDbContext<LibraryDbContext>(options => options.UseSqlite(bui
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ILoanRepository, LoanRepository>();
 
 var app = builder.Build();
 

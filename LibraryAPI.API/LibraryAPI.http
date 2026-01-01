@@ -68,3 +68,6 @@ Content-Type: application/json
     "userId": 1,
     "bookId": 1
 }
+
+POST {{LibraryAPI_HostAddress}}/api/loans/borrow?userId=1&bookId=1
+POST {{LibraryAPI_HostAddress}}/api/loans/return/1
