@@ -1,5 +1,36 @@
-@LibraryAPI_HostAddress = http://localhost:5217
+@LibraryAPI_HostAddress = http://localhost:5173
 
-GET {{LibraryAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+GET {{LibraryAPI_HostAddress}}/api/books/
 
+POST {{LibraryAPI_HostAddress}}/api/books/
+Content-Type: application/json
+
+{
+  "title": "Clean Architecture",
+  "author": "Robert C. Martin",
+  "isbn": "978-0134494166",
+  "totalCopies": 4
+  availableCopies: 4
+}
+
+// Get all books
+GET {{LibraryAPI_HostAddress}}/api/books/
+
+// Get a book by ID
+GET {{LibraryAPI_HostAddress}}/api/books/1
+
+// Update a book by ID
+PUT {{LibraryAPI_HostAddress}}/api/books/1
+Content-Type: application/json
+
+{
+   "id": 1,
+    "title": "Clean Architecture (Updated)",
+    "author": "Robert C. Martin",
+    "isbn": "978-0134494166",
+    "totalCopies": 5,
+    "availableCopies": 5
+}
+
+// Delete a book by ID
+DELETE {{LibraryAPI_HostAddress}}/api/books/1
