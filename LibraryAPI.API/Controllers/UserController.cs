@@ -10,7 +10,7 @@ using LibraryAPI.Domain.Entities;
 
 public class UserController : ControllerBase
 {
-    prvate readonly IUserRepository _repository;
+    private readonly IUserRepository _repository;
     public UserController(IUserRepository repository)
     {
         _repository = repository;
