@@ -1,4 +1,4 @@
-@LibraryAPI_HostAddress = http://localhost:5173
+@LibraryAPI_HostAddress = http://localhost:7043/api/books
 
 GET {{LibraryAPI_HostAddress}}/api/books/
 
@@ -34,3 +34,37 @@ Content-Type: application/json
 
 // Delete a book by ID
 DELETE {{LibraryAPI_HostAddress}}/api/books/1
+
+//get users
+GET {{LibraryAPI_HostAddress}}/api/users/
+//add user
+POST {{LibraryAPI_HostAddress}}/api/users/
+Content-Type: application/json
+{
+  "name": "Alice Johnson",
+  "email": "aj@email.com"
+}
+//update user
+PUT {{LibraryAPI_HostAddress}}/api/users/1
+Content-Type: application/json
+{
+    "id": 1,
+    "name": "Alice Johnson (Updated)",
+    "email": "ajohnson@email.com"
+}
+//delete user
+DELETE {{LibraryAPI_HostAddress}}/api/users/1
+//borrow book
+POST {{LibraryAPI_HostAddress}}/api/loans/borrow
+Content-Type: application/json
+{
+    "userId": 1,
+    "bookId": 1
+}
+//return book
+POST {{LibraryAPI_HostAddress}}/api/loans/return
+Content-Type: application/json
+{
+    "userId": 1,
+    "bookId": 1
+}
