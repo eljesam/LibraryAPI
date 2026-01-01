@@ -1,5 +1,9 @@
+using LibraryAPI.Application.Interfaces;
 using LibraryAPI.Infrastructure.Data;
+using LibraryAPI.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using LibraryAPI.Application.Interfaces;
+using LibraryAPI.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var application = builder.Build();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
