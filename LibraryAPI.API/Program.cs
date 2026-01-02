@@ -52,8 +52,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-app.UserAuthentication();
-app.UserAuthorization();
+app.UseAuthentication();
+app.UseAuthorization()
 
 
 app.Run();
