@@ -20,6 +20,12 @@ public class LoanRepository: ILoanRepository
             .Include(l => l.User)
             .ToListAsync();
     }
+
+    public Task<IEnumerable<Loan>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<Loan?> GetLoanByIdAsync(int id)
     {
         return await _context.Loans

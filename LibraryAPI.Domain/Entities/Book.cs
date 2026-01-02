@@ -12,4 +12,5 @@ public class Book
     public int TotalCopies { get; set; }
     
     public ICollection<Loan> Loans { get; set; }
+    
 }

@@ -1,12 +1,18 @@
-﻿using LibraryAPI.Application.Interfaces;
+﻿using System;
+using System.Threading.Tasks;
+using LibraryAPI.Application.Interfaces;
 using LibraryAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 
+
+
+[Authorize]
 [ApiController]
 [Route("api/loans")]
 
-public class LoanController
+public class LoanController : ControllerBase
 {
     private readonly ILoanRepository _loanRepository;
     private readonly IUserRepository _userRepository;
@@ -30,12 +36,16 @@ public class LoanController
     {
         var user = await _userRepository.GetByIdAsync(userId);
         var book = await _bookRepository.GetByIdAsync(bookId);
-        if (user == null || book == null || book.AvailableCopies <= 0)
+        if (user == null || book == null)
         {
-            return BadRequest("Invalid user or book, or no available copies.");
+            return NotFound("Invalid user or book, or no available copies.");
+        }
+        if(book.CopiesAvailable <= 0)
+        {
+            return BadRequest("No available copies of the book.");
         }
 
-        book.AvailableCopies--;
+        book.CopiesAvailable--;
         var loan = new Loan
         {
             UserId = userId,
@@ -62,7 +72,7 @@ public class LoanController
         var book = await _bookRepository.GetByIdAsync(loan.BookId);
         if (book != null)
         {
-            book.AvailableCopies++;
+            book.CopiesAvailable++;
             await _bookRepository.UpdateAsync(book);
         }
 
